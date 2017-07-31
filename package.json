@@ -1,0 +1,20 @@
+{
+  "name": "unmerge",
+  "version": "1.0.0",
+  "description": "Generate multiple versions of an object depending on a list or specific property. Can be easily used for writing dev/prod configurations or handling translations inside an object. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "unmerge",
+    "ramda",
+    "json",
+    "object"
+  ],
+  "author": "Julien Bonnin <julien.bonnin.dev@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "ramda": "^0.24.1"
+  }
+}
