@@ -1,15 +1,14 @@
 const unmerge = require('./main');
-
 const data = {
-    "person": {
-        "name": {
-          fr: 'j\'aime les glaces',
-          en: 'I love ice cream',
-        },
-        "age": 33
+    "env": ['prod', 'dev'],
+    "config": {
+        "basePath": './',
+        "scripts": {
+          "dev": "./scripts/",
+          "prod": "./build/minified/"
+        }
     },
 };
 
-const result = unmerge.byList(['en', 'fr'], data);
-
-console.log(result);
+const output = unmerge.byList('env', data);
+console.log(output);

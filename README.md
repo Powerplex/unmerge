@@ -2,11 +2,11 @@
 Generate multiple versions of an object depending on a list or specific property.
 Can be easily used for writing dev/prod configurations or handling translations inside an object.
 
-Examples : 
+Examples :
 
 1 - With a list of criterias :
 ```javascript
-const unmerge = require('./main');
+const unmerge = require('unmerge');
 const data = {
     "person": {
         "name": 'Johnny',
@@ -14,7 +14,7 @@ const data = {
         "nationality": {
           "fr": "Anglais",
           "en": "English"
-        } 
+        }
     },
 };
 
@@ -28,7 +28,7 @@ output:
 
 2 - With a specific criteria (single output) :
 ```javascript
-const unmerge = require('./main');
+const unmerge = require('unmerge');
 const data = {
     "person": {
         "name": 'Johnny',
@@ -36,7 +36,7 @@ const data = {
         "nationality": {
           "fr": "Anglais",
           "en": "English"
-        } 
+        }
     },
 };
 
@@ -49,7 +49,7 @@ output:
 
 3 - Using one of the object's property to unmerge :
 ```javascript
-const unmerge = require('./main');
+const unmerge = require('unmerge');
 const data = {
     "env": ['prod', 'dev'],
     "config": {
@@ -57,7 +57,7 @@ const data = {
         "scripts": {
           "dev": "./scripts/",
           "prod": "./build/minified/"
-        } 
+        }
     },
 };
 

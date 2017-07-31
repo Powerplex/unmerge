@@ -45,25 +45,26 @@ const resetValue = curry((path, key, obj) => {
    return set(toPath, value, obj);
 });
 
-const replacePathes = curry((pathesToReplace, key, object) => {
+const replacePathes = curry((pathesToReplace, key, condition, object) => {
   let cloned = clone(object);
   forEach(
     path => cloned = resetValue(path, key, cloned),
     pathesToReplace
   );
+  if (typeof condition === 'string') delete cloned[condition];
   return [key, cloned];
 });
 
-const unmergeByProperty = curry((key, object) => pipe(
+const unmergeByProperty = curry((key, condition, object) => pipe(
   getAllPathes,
   stringsToPathes,
   filterPathesToReplace(key),
-  replacePathes(__, key, object)
+  replacePathes(__, key, condition, object)
 )(object));
 
 const unmerge = (condition, object) => pipe(
   () => is(String, condition) ? object[condition] : condition,
-  map(unmergeByProperty(__, object)),
+  map(unmergeByProperty(__, condition, object)),
   fromPairs
 )(object);
 
@@ -73,5 +74,3 @@ exports.byProperty = curry((restrict, object) => unmerge([restrict], object)[res
 // unmerge.byList('languages', data);
 // or : unmerge.byList(['en', 'fr'], data);
 // or : unmerge.byProperty('fr', data);
-
-
