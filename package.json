@@ -2,7 +2,7 @@
   "name": "unmerge",
   "version": "1.0.0",
   "description": "Generate multiple versions of an object depending on a list or specific property. Can be easily used for writing dev/prod configurations or handling translations inside an object. ",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "node test.js"
   },
