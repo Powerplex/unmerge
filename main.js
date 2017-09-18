@@ -23,7 +23,7 @@ const getAllPathes = function(obj, prefix){
   return Object.keys(obj).reduce((result, key) => {
       const property = obj[key];
       const withPrefix = prefix + key;
-      if (typeof property === 'object') {
+      if (typeof property === 'object' && !Array.isArray(property)) {
         result = result.concat(getAllPathes(property, withPrefix))
       } else {
         result.push(withPrefix)
